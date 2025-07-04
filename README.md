@@ -1,31 +1,126 @@
-# 🍲 Food Recipe Web Application
+# 📖 Recipe Book Application
 
-A modern full-stack web application that allows users to create, manage, and store their favorite food recipes, complete with images and update functionality. Built using the powerful **MERN Stack**.
+A personalized digital recipe book built using the **MERN stack**. This app allows users to **register, log in**, and manage their own recipes by adding, updating, and saving them securely. Users can also upload images of their dishes, creating a visually appealing and functional culinary journal.
 
-## 🚀 Tech Stack
+---
 
-- **MongoDB** – NoSQL database for storing user recipes
-- **Express.js** – Backend framework for building RESTful APIs
-- **Node.js** – Runtime environment for executing backend logic
-- **React (Vite)** – Fast and modern frontend with component-based UI
-- **TailwindCSS** – Utility-first CSS framework for responsive styling
-- **DaisyUI** – Tailwind component library for pre-designed UI elements
-- **React Router DOM** – SPA routing to navigate seamlessly between views
+## 🌐 Live Demo
+Coming soon...
 
-## ✨ Features
+---
 
-- 🔐 **User Management** *(optional/extendable)*  
-  Users can sign in and manage their own recipe collections.
+## 🛠️ Tech Stack
 
-- 📝 **Add Recipes**  
-  Create and save your favorite recipes with rich details like ingredients, cooking steps, and images.
+### Frontend
+- **React (Vite)**
+- **TailwindCSS**
+- **DaisyUI**
+- **Axios**
+- **React Router DOM**
+- **React Simple Typewriter**
+- **Vanilla Tilt**
 
-- 🖼️ **Image Upload**  
-  Upload and display a photo for each recipe to keep track of your delicious creations.
+### Backend
+- **Node.js**
+- **Express**
+- **MongoDB (Mongoose)**
+- **Multer (for image uploads)**
+- **dotenv**
+- **CORS**
+- **Express Validator**
+- **Nodemon**
+- **Concurrently**
 
-- 🔄 **Update Recipes**  
-  Edit recipes easily without deleting them—perfect for fine-tuning your dishes.
+---
 
-- ⚡ **SPA Navigation**  
-  Smooth transitions between pages using `react-router-dom`, just like modern apps like YouTube.
+## 📑 Pages
 
+- **Landing Page** – Introduction and call-to-action.
+- **Register Page** – User registration.
+- **Home Page** – Dashboard with personalized recipes.
+- **Profile Page** – User info and saved recipes.
+- **About Us Page** – Info about the creators or project.
+
+---
+
+## 🔄 Features
+
+- 🔐 **User Authentication** – Register and log in securely.
+- 📖 **Personalized Recipe Book** – Save, update, and delete recipes.
+- 🖼️ **Image Upload** – Upload a photo with each recipe using Multer.
+- 🌍 **Global Data Sharing** – Context API used for global state management.
+- 🧩 **Reusable Components** – Organized code with reusable React components.
+
+---
+
+## 📁 Project Structure
+
+recipe-book/
+│
+├── backend/
+│ ├── config/
+│ │ └── db.js
+│ ├── models/
+│ │ ├── recipeInfo.js
+│ │ └── userInfo.js
+│ ├── routes/
+│ │ ├── profilePage.js
+│ │ └── recipePage.js
+│ └── server.js
+│
+├── frontend/
+│ ├── public/
+│ ├── src/
+│ │ ├── assets/
+│ │ ├── components/
+│ │ ├── context/
+│ │ └── routes/
+│ ├── App.jsx
+│ ├── index.css
+│ ├── main.jsx
+│ ├── index.html
+│ ├── vite.config.js
+│ ├── eslint.config.js
+│ └── .gitignore
+│
+├── .env
+├── package.json
+├── package-lock.json
+└── README.md
+
+
+---
+
+## 📦 Installation
+
+### Prerequisites
+
+- Node.js & npm
+- MongoDB running locally or on the cloud (e.g., MongoDB Atlas)
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/your-username/recipe-book.git
+cd recipe-book
+
+🤝 Contributing
+Contributions, issues, and feature requests are welcome!
+Feel free to open a pull request or submit an issue.
+
+🙌 Acknowledgments
+Thanks to open-source libraries and tools that made this project possible:
+
+React
+
+Express
+
+MongoDB
+
+Tailwind CSS
+
+DaisyUI
+
+📬 Contact
+For any questions or feedback, reach out via GitHub issues or open a discussion thread.
+Let me know if you'd like me to customize this for deployment instructions, add screenshots, or create badges (e.g., build status, license, etc.).
