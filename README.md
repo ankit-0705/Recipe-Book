@@ -88,22 +88,6 @@ recipe-book/
 ├── package-lock.json
 └── README.md
 
-
----
-
-## 📦 Installation
-
-### Prerequisites
-
-- Node.js & npm
-- MongoDB running locally or on the cloud (e.g., MongoDB Atlas)
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/your-username/recipe-book.git
-cd recipe-book
-
 🤝 Contributing
 Contributions, issues, and feature requests are welcome!
 Feel free to open a pull request or submit an issue.
@@ -124,3 +108,18 @@ DaisyUI
 📬 Contact
 For any questions or feedback, reach out via GitHub issues or open a discussion thread.
 Let me know if you'd like me to customize this for deployment instructions, add screenshots, or create badges (e.g., build status, license, etc.).
+
+---
+
+## 📦 Installation
+
+### Prerequisites
+
+- Node.js & npm
+- MongoDB running locally or on the cloud (e.g., MongoDB Atlas)
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/your-username/recipe-book.git
+cd recipe-book
