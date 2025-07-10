@@ -3,6 +3,7 @@ import { Typewriter } from 'react-simple-typewriter';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import RecipeContext from '../context/recipeContext';
+const backendUrl = import.meta.env.VITE_API_BASE_URL;
 
 function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ function RegisterPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://127.0.0.1:5000/api/profile/createuser", formData);
+      await axios.post(`${backendUrl}/api/profile/createuser`, formData);
       await infoGetter();
       navigate('/landing');
     } catch (error) {
@@ -37,7 +38,7 @@ function RegisterPage() {
   useEffect(()=>{
     const checkUser = async ()=>{
       try {
-        const {data} = await axios.get('http://127.0.0.1:5000/api/profile/getuser');
+        const {data} = await axios.get(`${backendUrl}/api/profile/getuser`);
         if(data && data.name){
           navigate('/landing');
         }

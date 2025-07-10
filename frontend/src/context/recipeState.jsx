@@ -1,6 +1,7 @@
 import RecipeContext from "./recipeContext";
 import React,{useState, useEffect} from 'react';
 import axios from 'axios';
+const backendUrl = import.meta.env.VITE_API_BASE_URL;
 
 const RecipeState = (props)=>{
     const [profileInfo, setProfileInfo] = useState(null);
@@ -8,7 +9,7 @@ const RecipeState = (props)=>{
 
     const infoGetter = async () =>{
         try {
-            const response = await axios.get('http://127.0.0.1:5000/api/profile/getuser');
+            const response = await axios.get(`${backendUrl}/api/profile/getuser`);
             setProfileInfo(response.data);
         } catch (error) {
             console.error('Some Error Occured!!');
@@ -17,7 +18,7 @@ const RecipeState = (props)=>{
 
     const recipeGetter = async () =>{
         try {
-            const response = await axios.get('http://127.0.0.1:5000/api/recipe/fetchallrecipe');
+            const response = await axios.get(`${backendUrl}/api/recipe/fetchallrecipe`);
             setRecipeInfo(response.data);
         } catch (error) {
             console.error('Some Error Occured!!');

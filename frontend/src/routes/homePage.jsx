@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState, useEffect } from 'react';
 import RecipeContext from '../context/recipeContext';
 import Buttons from '../components/buttons';
 import axios from 'axios';
+const backendUrl = import.meta.env.VITE_API_BASE_URL;
 
 function HomePage() {
   const { profileInfo, recipeInfo, recipeGetter } = useContext(RecipeContext);
@@ -15,7 +16,6 @@ function HomePage() {
   const [filterType, setFilterType] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState(null);
-  const [editMode, setEditMode] = useState(false); // whether we're in edit mode
   const [editingRecipe, setEditingRecipe] = useState(null); // recipe currently being edited
 
 
@@ -56,7 +56,7 @@ function HomePage() {
     if (imageFile) formData.append('image', imageFile);
 
     try {
-      const res = await axios.post('http://127.0.0.1:5000/api/recipe/addrecipe', formData, {
+      const res = await axios.post(`${backendUrl}/api/recipe/addrecipe`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       if (res.status === 200 || res.status === 201) {
@@ -80,7 +80,7 @@ function HomePage() {
   const handleLike = async (recipeId) => {
     try {
       setIsLiking(true);
-      const res = await axios.post(`http://127.0.0.1:5000/api/recipe/like/${recipeId}`);
+      const res = await axios.post(`${backendUrl}/api/recipe/like/${recipeId}`);
       if (res.status === 200) {
         recipeGetter();
         if (selectedRecipe && selectedRecipe._id === recipeId) {
@@ -96,7 +96,7 @@ function HomePage() {
 
   const handleDelete = async (recipeId) => {
     try {
-      const res = await axios.delete(`http://127.0.0.1:5000/api/recipe/deleterecipe/${recipeId}`);
+      const res = await axios.delete(`${backendUrl}/api/recipe/deleterecipe/${recipeId}`);
     if (res.status === 200) {
       alert("Recipe deleted successfully.");
       setSelectedRecipe(null);
@@ -118,7 +118,7 @@ function HomePage() {
     }
   
     try {
-      const res = await axios.get(`http://127.0.0.1:5000/api/recipe/searchrecipe?query=${encodeURIComponent(searchQuery)}`);
+      const res = await axios.get(`${backendUrl}/api/recipe/searchrecipe?query=${encodeURIComponent(searchQuery)}`);
       if (res.status === 200) {
         setSearchResults(res.data);
       }
@@ -265,7 +265,7 @@ function HomePage() {
 
                     try {
                       const res = await axios.put(
-                        `http://127.0.0.1:5000/api/recipe/updaterecipe/${editingRecipe._id}`,
+                        `${backendUrl}/api/recipe/updaterecipe/${editingRecipe._id}`,
                         formData,
                         {
                           headers: { 'Content-Type': 'multipart/form-data' },

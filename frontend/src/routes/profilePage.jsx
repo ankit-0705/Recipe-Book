@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import RecipeContext from '../context/recipeContext';
 import axios from 'axios';
 import Buttons from '../components/buttons';
+const backendUrl = import.meta.env.VITE_API_BASE_URL;
 
 function ProfilePage() {
   const { profileInfo, infoGetter, recipeInfo } = useContext(RecipeContext);
@@ -35,7 +36,7 @@ function ProfilePage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put('http://127.0.0.1:5000/api/profile/updateuser', editInfo);
+      await axios.put(`${backendUrl}/api/profile/updateuser`, editInfo);
       await infoGetter();
       document.getElementById('my_modal_1').close();
     } catch (error) {
