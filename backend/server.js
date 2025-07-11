@@ -5,7 +5,7 @@ const app = express();
 require('dotenv').config();
 const port = process.env.web_Port
 
-const allowedOrigins = ['https://recipe-book-swart-pi.vercel.app/','http://localhost:5173']
+const allowedOrigins = ['https://recipe-book-swart-pi.vercel.app','http://localhost:5173']
 
 //Middlewares
 app.use(cors({
@@ -18,6 +18,7 @@ app.use(cors({
   },
   credentials: true,
 }));
+app.options('*',cors());
 app.use(express.json()); 
 
 //Routes
