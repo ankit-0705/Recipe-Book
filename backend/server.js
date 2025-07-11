@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 require('dotenv').config();
-const port = process.env.web_Port
+const port = process.env.web_Port || 5000
 
 const allowedOrigins = ['https://recipe-book-swart-pi.vercel.app','http://localhost:5173']
 
