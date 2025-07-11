@@ -7,18 +7,20 @@ const port = process.env.web_Port
 
 const allowedOrigins = ['https://recipe-book-swart-pi.vercel.app','http://localhost:5173']
 
-//Middlewares
-app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.some(o => origin.startsWith(o))) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
   credentials: true,
-}));
-app.options('*',cors());
+};
+
+//Middlewares
+app.use(cors(corsOptions));
+app.options('*',cors(corsOptions));
 app.use(express.json()); 
 
 //Routes
